@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 
 const paymentRouter = require('./routes/payment.routes');
+const expensesRoute = require('./routes/expenses.routes');
 
 // não remova esse endpoint, é para o avaliador funcionar
 app.get('/', (_request, response) => {
@@ -15,5 +16,6 @@ app.get('/', (_request, response) => {
 // Código que eu inseri
 app.use(express.json());
 app.use('/pagamento', paymentRouter);
+app.use('/api/despesas', expensesRoute);
 // você deve usar o arquivo index.js para executar sua aplicação !
 module.exports = app;
